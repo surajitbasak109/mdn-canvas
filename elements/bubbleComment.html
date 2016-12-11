@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas - MDN</title>
+	<style>
+		#canvas { border: 1px solid gray; }
+	</style>
+</head>
+<body onload="draw();">
+	<canvas id="canvas" width="150" height="200"></canvas>
+
+	<p>Get &lt;canvas&gt; help from this <a href="../help/">link</a>.</p>
+	<script>
+		function draw () {
+			var canvas = document.getElementById('canvas');
+			if (canvas.getContext) {
+				var ctx = canvas.getContext('2d');
+			
+				ctx.moveTo(75, 25);
+				ctx.quadraticCurveTo(25, 25, 25, 62.5);
+				ctx.quadraticCurveTo(25, 100, 50, 100);
+				ctx.quadraticCurveTo(50, 120, 30, 125);
+				ctx.quadraticCurveTo(50, 120, 30, 125);
+				ctx.quadraticCurveTo(60, 120, 65, 100);
+				ctx.quadraticCurveTo(125, 100, 125, 62.5);
+				ctx.quadraticCurveTo(125, 25, 75, 25);
+
+				ctx.font = '14px Ubuntu, Arial, sans-serif';
+				ctx.fillText('Hello World!', 35, 70);
+				
+				ctx.stroke();
+			}
+		}
+	</script>
+</body>
+</html>

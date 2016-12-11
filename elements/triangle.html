@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas - MDN</title>
+	<style>
+		#canvas { border: 1px solid gray; }
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="150" height="150"></canvas>
+
+	<p>Get &lt;canvas&gt; help from this <a href="../help/">link</a>.</p>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.beginPath();
+		ctx.moveTo(25, 25);
+		ctx.lineTo(25, 125);
+		ctx.lineTo(125, 25);
+		ctx.fill();
+
+		ctx.beginPath;
+		ctx.moveTo(125, 125);
+		ctx.lineTo(125, 25);
+		ctx.lineTo(25, 125);
+		ctx.closePath();
+		ctx.stroke();
+	</script>
+</body>
+</html>

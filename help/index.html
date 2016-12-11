@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Documentation</title>
+	<link rel="stylesheet" href="help.css">
+</head>
+<body>
+	<div class="container">
+		<h2 class="center">Canvas Help</h2>
+		<p>Get help with <a href="console.html">console</a> tab.</p>
+		<div id="d_help"></div>
+	</div>
+
+	<script>
+		window.addEventListener('load', function () {
+			var html = "<dl>";
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'dict.json', true);
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						var obj = JSON.parse(xhr.responseText);
+						obj.forEach( function(val, index) {
+							html +='<dt><code id="'+index+'"><a href="' + val.url + '" target="_blank" title="'+ val.desc +'">' + val.name + '</a></code></dt>'+
+							'<dd>' + val.desc + '</dd>';
+						});
+						html += "</dl>";
+						document.getElementById('d_help').innerHTML = html;
+					}
+				}
+			}
+			xhr.send(null);
+		}, false);
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mine Sweeper Game - Canvas HTML5</title>
+</head>
+<body>
+	<div id="controls">
+		
+	</div>
+	<div id="gameCanvas">
+		<canvas id="gCanvas" width="400" height="400"></canvas>
+	</div>
+
+	<script>
+		var s = {
+			rows: 10,
+			cols: 10,
+			width: 30,
+			height: 30,
+			fps: 30
+		}
+
+		var ctx;
+
+		window.addEventListener('load', function () {
+			var canvas = document.getElementById('gCanvas');
+			ctx = canvas.getContext('2d');
+
+			init();
+		}, false);
+
+		var box;
+
+		function init () {
+			
+			box = new Image();
+			box.src = "box.png";
+
+			drawCanvas();
+
+		}
+
+		function drawCanvas () {
+			ctx.clearRect(0, 0, 400, 400);
+
+			for (var c = 0; c < s.cols; c++) {
+				for (var r = 0; r < s.rows; r++) {
+					var x = r * s.width;
+					var y = c * s.height;
+					ctx.drawImage(box, x, y);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

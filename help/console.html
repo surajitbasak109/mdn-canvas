@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Terminal</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			font-family: Ubuntu, Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			margin: 10px 0;
+		}
+		a {
+			color: #36b2ff;
+			text-decoration: none;
+		}
+		ul, ol {
+			list-style: none;
+		}
+		#wrap {
+			background: #4a4a4a;
+			color: #00e500;
+			min-height: 100vh;
+		}
+		#wrap:before,
+		#wrap:after {
+			content: '';
+			display: table;
+		}
+		#wrap:after {
+			clear: both;
+		}
+		#top {
+			padding: 20px;
+			margin-bottom: 2%;
+			background: #3e3e3e;
+		}
+		#terminal {
+			width: 100%;
+			font-family: monospace;
+			font-size: 14px;
+			background: #000;
+			color: #00e500;
+			border: 0;
+			outline: 0;
+			margin: 10px 0;
+			padding: 10px 10px 30px;
+		}
+		.primary, .secondary {			
+			float: none;
+			background: #3e3e3e;
+			color: #fff;
+			min-height: 400px;
+		}
+		.centered {
+			text-align: center;
+		}
+
+		@media (min-width: 768px) {			
+			.primary, .secondary {			
+				float: left;
+				min-height: 400px;
+				padding: 10px 20px;
+			}
+			.primary {
+				width: 59%;
+				margin-right: 1%;
+			}
+			.secondary {
+				width: 39%;
+				margin-left: 1%;
+			}
+		}
+	</style>
+</head>
+<body>
+	 <div id="wrap">
+		<div id="top">
+			<h1 class="centered">Help Terminal</h1>
+	 		<input type="text" id="terminal" autofocus="true">
+		</div>
+		<div id="bottom">
+			<div id="result" class="primary"></div>
+			<div id="instruction" class="secondary">
+				<ol>
+					<h2>Instructions</h2>
+					<li>Type a keyword on console and press enter to get search result on
+					left side.</li>
+					<li>Your keyword length should be 3 or more.</li>
+					<li>If it shows that your query was not found then try again.</li>
+				</ol>
+			</div>
+		</div>
+	 </div>
+
+	 <script>
+	 	var terminal = document.getElementById('terminal');
+	 	var output = document.querySelector('#result');
+	 	terminal.addEventListener('keypress', detectHandler, false);
+	 	function detectHandler (e) {
+	 		if (e.keyCode == 13) {
+	 			output.innerHTML = '';
+	 			var input = e.target.value;
+	 			getHelp(input);
+	 		}
+	 	}
+
+	 	function getHelp (input) {
+	 		if (input.length > 2) {
+	 			var xhr = new XMLHttpRequest();
+		 		xhr.open('GET', 'dict.json', true);
+		 		xhr.onreadystatechange = function () {
+		 			if (xhr.readyState == 4 && xhr.status == 200) {
+		 				var data = JSON.parse(xhr.responseText);
+		 				data.forEach( function(val, ind) {
+		 					if (val.name.toLowerCase().indexOf(input.toLowerCase()) !== -1) {
+		 						output.innerHTML += '<dl><dt><h3><a href="'+val.url+'" target="_blank">'+val.name+'</a></h3></dt><dd>'+val.desc+'</dd></dl>';
+		 					}
+		 				});
+		 				if (output.innerHTML == '' || output.innerHTML.length <= 50) {
+		 					output.innerHTML = '<h2>Sorry, we couldn\'t found your query.</h2><img src="http://i.imgur.com/0NNIO9t.gif" alt="" />';
+		 				}
+		 			}
+		 		}
+		 		xhr.send(null);
+	 		} else {
+	 			output.innerHTML = '<h3>Please enter at least 3 or more keywords.</h3>';
+	 		}
+	 	}
+	 </script>
+</body>
+</html>
