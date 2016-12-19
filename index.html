@@ -3,47 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Canvas - MDN</title>
-	<style>
-		#canvas { background: #f9f9f9; }
-	</style>
 </head>
-<body onload="draw();">
-	<canvas id="canvas" width="1000" height="1000"></canvas>
-
-	<p>Get &lt;canvas&gt; help from this <a href="../help/">link</a>.</p>
-	<script>
-
-		function draw() {
-		  var canvas = document.getElementById('canvas');
-		  if (canvas.getContext){
-		    var ctx = canvas.getContext('2d');
-
-		    // get x and y position
-		    x = canvas.width;
-		    var xywh = x / 2;
-
-		    // draw background
-		    ctx.fillStyle = '#fd0';
-		    ctx.fillRect(0, 0, xywh, xywh);
-		    ctx.fillStyle = '#6c0';
-		    ctx.fillRect(xywh, 0, xywh, xywh);
-		    ctx.fillStyle = '#09d';
-		    ctx.fillRect(0, xywh, xywh, xywh);
-		    ctx.fillStyle = '#f30';
-		    ctx.fillRect(xywh, xywh, xywh, xywh);
-		    ctx.fillStyle = '#fff';
-		    // set transparency value
-		    ctx.globalAlpha = 0.2;
-
-		    // draw semi-transparent circle
-		    for (var i = 0; i < 7; i++) {
-		    	ctx.beginPath();
-		    	ctx.arc(xywh, xywh, xywh/10 + xywh/10 * i, 0, Math.PI * 2, true);
-		    	ctx.fill();
-		    }
-
-		}
-	}
-	</script>
+<body onload="draw()">
+	<canvas id="canvas" width="150" height="150"></canvas>
+	<p>Get &lt;canvas &gt; help from this <a href="help/">link</a>.</p>
+	<script src="examples/rotate.js"></script>
 </body>
 </html>

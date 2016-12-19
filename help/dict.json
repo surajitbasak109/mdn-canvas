@@ -100,6 +100,186 @@
 		"url": "index.html"
 	},
 	{
+		"name": "lineWidth = value",
+		"desc": "The CanvasRenderingContext2D.lineWidth property of the Canvas 2D API sets the thickness of lines in space units. When getting, it returns the current value (1.0 by default). When setting, zero, negative, Infinity and NaN values are ignored; otherwise the current value is set to the new value.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineWidth"
+	},
+	{
+		"name": "lineCap = type",
+		"desc": "The CanvasRenderingContext2D.lineCap property of the Canvas 2D API determines how the end points of every line are drawn. There are three possible values for this property and those are: butt, round and square. By default this property is set to butt.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap"
+	},
+	{
+		"name": "lineJoin = type",
+		"desc": "The CanvasRenderingContext2D.lineJoin property of the Canvas 2D API determines how two connecting segments (of lines, arcs or curves) with non-zero lengths in a shape are joined together (degenerate segments with zero lengths, whose specified endpoints and control points are exactly at the same position, are skipped).",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin"
+	},
+	{
+		"name": "miterLimit = value",
+		"desc": "The CanvasRenderingContext2D.miterLimit property of the Canvas 2D API sets the miter limit ratio in space units. When getting, it returns the current value (10.0 by default). When setting, zero, negative, Infinity and NaN values are ignored; otherwise the current value is set to the new value.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/miterLimit"
+	},
+	{
+		"name": "getLineDash()",
+		"desc": "The CanvasRenderingContext2D.getLineDash() method of the Canvas 2D API gets the current line dash pattern.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getLineDash"
+	},
+	{
+		"name": "setLineDash(segments)",
+		"desc": "The CanvasRenderingContext2D.setLineDash() method of the Canvas 2D API sets the line dash pattern.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash"
+	},
+	{
+		"name": "lineDashOffset = value",
+		"desc": "The CanvasRenderingContext2D.lineDashOffset property of the Canvas 2D API sets the line dash pattern offset or \"phase\" to achieve a \"marching ants\" effect, for example.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset"
+	},
+	{
+		"name": "createLinearGradient(x1, y1, x2, y2)",
+		"desc": "The CanvasRenderingContext2D.createLinearGradient() method of the Canvas 2D API creates a gradient along the line given by the coordinates represented by the parameters. This method returns a linear CanvasGradient.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient"
+	},
+	{
+		"name": "createRadialGradient(x1, y1, r1, x2, y2, r2)",
+		"desc": "The CanvasRenderingContext2D.createRadialGradient() method of the Canvas 2D API creates a radial gradient given by the coordinates of the two circles represented by the parameters. This method returns a CanvasGradient.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createRadialGradient"
+	},
+	{
+		"name": "gradient.addColorStop(position, color)",
+		"desc": "The CanvasGradient.addColorStop() method adds a new stop, defined by an offset and a color, to the gradient. If the offset is not between 0 and 1, an INDEX_SIZE_ERR is raised, if the color can't be parsed as a CSS <color>, a SYNTAX_ERR is raised.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient/addColorStop"
+	},
+	{
+		"name": "createPattern(image, type)",
+		"desc": "The CanvasRenderingContext2D.createPattern() method of the Canvas 2D API creates a pattern using the specified image (a CanvasImageSource). It repeats the source in the directions specified by the repetition argument. This method returns a CanvasPattern.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createPattern"
+	},
+	{
+		"name": "shadowOffsetX = float",
+		"desc": "The CanvasRenderingContext2D.shadowOffsetX property of the Canvas 2D API specifies the distance that the shadow will be offset in horizontal distance.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX"
+	},
+	{
+		"name": "shadowOffsetY = float",
+		"desc": "The CanvasRenderingContext2D.shadowOffsetY property of the Canvas 2D API specifies the distance that the shadow will be offset in vertical distance.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY"
+	},
+	{
+		"name": "shadowBlur = float",
+		"desc": "The CanvasRenderingContext2D.shadowBlur property of the Canvas 2D API specifies the level of the blurring effect; this value doesn't correspond to a number of pixels and is not affected by the current transformation matrix. The default value is 0.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowBlur"
+	},
+	{
+		"name": "shadowColor = color",
+		"desc": "The CanvasRenderingContext2D.shadowColor property of the Canvas 2D API specifies the color of the shadow.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowColor"
+	},
+	{
+		"name": "save()",
+		"desc": "The CanvasRenderingContext2D.save() method of the Canvas 2D API saves the entire state of the canvas by pushing the current state onto a stack.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/save"
+	},
+	{
+		"name": "restore()",
+		"desc": "The CanvasRenderingContext2D.restore() method of the Canvas 2D API restores the most recently saved canvas state by popping the top entry in the drawing state stack. If there is no saved state, this method does nothing.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/restore"
+	},
+	{
+		"name": "strokeStyle",
+		"desc": "The CanvasRenderingContext2D.strokeStyle property of the Canvas 2D API specifies the color or style to use for the lines around shapes. The default is #000 (black).",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle"
+	},
+	{
+		"name": "translate(x, y)",
+		"desc": "The CanvasRenderingContext2D.translate() method of the Canvas 2D API adds a translation transformation by moving the canvas and its origin x horizontally and y vertically on the grid.",
+		"url": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/translate"
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
+		"name": "",
+		"desc": "",
+		"url": ""
+	},
+	{
 		"name": "",
 		"desc": "",
 		"url": ""

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Terminal</title>
+	<title>MDN Help Terminal</title>
 	<style>
 		* {
 			margin: 0;
@@ -62,6 +62,10 @@
 		.centered {
 			text-align: center;
 		}
+		mark {
+		    background: rgba(129, 209, 255, 0.07);
+		    color: #fff;
+		}
 
 		@media (min-width: 768px) {			
 			.primary, .secondary {			
@@ -83,7 +87,7 @@
 <body>
 	 <div id="wrap">
 		<div id="top">
-			<h1 class="centered">Help Terminal</h1>
+			<h1 class="centered">MDN Help Terminal</h1>
 	 		<input type="text" id="terminal" autofocus="true">
 		</div>
 		<div id="bottom">
@@ -103,10 +107,13 @@
 	 <script>
 	 	var terminal = document.getElementById('terminal');
 	 	var output = document.querySelector('#result');
+	 	var html = '';
+	 	var xhr = new XMLHttpRequest();
 	 	terminal.addEventListener('keypress', detectHandler, false);
 	 	function detectHandler (e) {
 	 		if (e.keyCode == 13) {
 	 			output.innerHTML = '';
+	 			html = '';
 	 			var input = e.target.value;
 	 			getHelp(input);
 	 		}
@@ -114,26 +121,27 @@
 
 	 	function getHelp (input) {
 	 		if (input.length > 2) {
-	 			var xhr = new XMLHttpRequest();
-		 		xhr.open('GET', 'dict.json', true);
-		 		xhr.onreadystatechange = function () {
-		 			if (xhr.readyState == 4 && xhr.status == 200) {
-		 				var data = JSON.parse(xhr.responseText);
-		 				data.forEach( function(val, ind) {
-		 					if (val.name.toLowerCase().indexOf(input.toLowerCase()) !== -1) {
-		 						output.innerHTML += '<dl><dt><h3><a href="'+val.url+'" target="_blank">'+val.name+'</a></h3></dt><dd>'+val.desc+'</dd></dl>';
-		 					}
-		 				});
-		 				if (output.innerHTML == '' || output.innerHTML.length <= 50) {
-		 					output.innerHTML = '<h2>Sorry, we couldn\'t found your query.</h2><img src="http://i.imgur.com/0NNIO9t.gif" alt="" />';
-		 				}
-		 			}
-		 		}
+		 		xhr.onreadystatechange = handleServerResponse;
+		 		xhr.open('GET', 'https://developer.mozilla.org/en-US/search.json?count=15&q='+input, true);
 		 		xhr.send(null);
 	 		} else {
 	 			output.innerHTML = '<h3>Please enter at least 3 or more keywords.</h3>';
 	 		}
 	 	}
+		function handleServerResponse () {
+			html = '<dl>';
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var data = JSON.parse(xhr.responseText);
+
+				// console.log(JSON.stringify(data.documents));
+				data.documents.forEach( function(val) {
+					html += '<dt><h4><a href="' + val.url + '" target="_blank">'+val.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</a></h4></dt>';
+					html += '<dd>'+val.excerpt+'</dd>';
+				});
+				html += '</dl>';
+				output.innerHTML = html;
+			}
+		}
 	 </script>
 </body>
 </html>

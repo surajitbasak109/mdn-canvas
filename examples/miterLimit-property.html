@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas - MDN</title>
+	<style>
+#canvas {
+    background: #f9f9f9;
+}
+</style>
+</head>
+<body onload="draw();">
+
+	<table>
+	  <tr>
+	    <td><canvas id="canvas" width="150" height="150"></canvas></td>
+	    <td>Change the <code>miterLimit</code> by entering a new value below and clicking the redraw button.<br><br>
+	      <form onsubmit="return draw();">
+	        <label>Miter limit</label>
+	        <input type="text" maxlength="3" size="3" value="10" id="miterLimit"/>
+	        <input type="submit" value="Redraw"/>
+	      </form>
+	    </td>
+	  </tr>
+	</table>
+	<p>Get &lt;canvas &gt; help from this <a href="../help/">link</a>.</p>
+	<script>
+function draw() {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    // clear canvas
+    ctx.clearRect(0, 0, 150, 150);
+    // create guides
+    ctx.strokeStyle = '#09f';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(-5, 50, 160, 50);
+    // set line styles
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 10;
+    // check input
+    if (document.getElementById('miterLimit').value.match(/\d(\.\d+)?/)) {
+        ctx.miterLimit = document.getElementById('miterLimit').value;
+    } else {
+        alert('Value must be a positive number');
+    }
+    // draw liines
+    ctx.beginPath();
+    ctx.moveTo(0, 100);
+    for (i = 0; i < 24; i++) {
+        var dy = i % 2 === 0 ? 25 : -25;
+        ctx.lineTo(Math.pow(i, 1.5) * 2, 75 + dy);
+    }
+    ctx.stroke();
+    return false;
+}
+</script>
+</body>
+</html>
