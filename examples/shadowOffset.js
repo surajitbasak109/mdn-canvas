@@ -11,3 +11,8 @@ function draw() {
 	ctx.fillStyle = "Black"
 	ctx.fillText("A simple Text", 5, 30);
 }
+
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

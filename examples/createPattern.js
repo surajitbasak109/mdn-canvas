@@ -12,3 +12,7 @@ function draw() {
 	});
 
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

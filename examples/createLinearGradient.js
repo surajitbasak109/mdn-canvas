@@ -21,3 +21,7 @@ function draw () {
 	ctx.fillRect(10, 10, 130, 130);
 	ctx.strokeRect(50, 50, 50, 50);
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

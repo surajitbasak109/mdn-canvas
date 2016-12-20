@@ -13,3 +13,7 @@ function draw() {
 
 	img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

@@ -17,3 +17,7 @@ function draw() {
     source.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
     frame.src = 'https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png';
 }
+
+window.addEventListener('load', function () {
+    draw();
+}, false);

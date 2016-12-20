@@ -18,3 +18,7 @@ function draw() {
 
 	img.src = 'https://mdn.mozillademos.org/files/5395/backdrop.png';
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

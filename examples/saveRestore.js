@@ -17,3 +17,7 @@ function draw() {
 	ctx.restore();						// restore original state
 	ctx.fillRect(60, 60, 30, 30);		// draw a rectangle with restored settings
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

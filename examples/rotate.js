@@ -1,5 +1,8 @@
 function draw() {
-	var ctx = document.getElementById('canvas').getContext('2d');
+	var canvas = document.getElementById('canvas');
+	canvas.height = 300;
+	canvas.width = 300;
+	var ctx = canvas.getContext('2d');
 
 	// left rectangles, rotate from origin
 	ctx.save();
@@ -9,7 +12,7 @@ function draw() {
 	ctx.fillRect(30, 30, 100, 100);
 	ctx.rotate((Math.PI/180) * 25);
 
-	// gray rect
+	// grey rect
 	ctx.fillStyle = '#4d4e53';
 	ctx.fillRect(30, 30, 100, 100);
 	ctx.restore();
@@ -25,8 +28,12 @@ function draw() {
     ctx.rotate((Math.PI / 180) * 25);
     ctx.translate(-200, -80); // translate back
 
-    // draw gray rect
-    ctx.fillstyle = '#4d4e53';
+    // draw grey rect
+    ctx.fillStyle = '#4d4e53';
     ctx.fillRect(150, 30, 100, 100);
 
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

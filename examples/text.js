@@ -8,3 +8,7 @@ function draw() {
 	var text = ctx.measureText('foo');
 	console.log(text.width);
 }
+
+window.addEventListener('load', function () {
+	draw();
+}, false);

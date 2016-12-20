@@ -33,3 +33,8 @@ function draw() {
 	ctx.fillStyle = radgrad;
 	ctx.fillRect(0, 0, 150, 150);
 }
+
+
+window.addEventListener('load', function () {
+	draw();
+}, false);
